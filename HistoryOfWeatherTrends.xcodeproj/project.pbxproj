@@ -17,7 +17,6 @@
 		044512F321EF539A002F964B /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044512F221EF539A002F964B /* WeatherViewModel.swift */; };
 		044512F521EF5A71002F964B /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044512F421EF5A71002F964B /* Parser.swift */; };
 		044512F821EF60BE002F964B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044512F721EF60BE002F964B /* Constants.swift */; };
-		044512FD21EF6BDF002F964B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044512FC21EF6BDF002F964B /* SWRevealViewController.m */; };
 		044512FF21EF702A002F964B /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044512FE21EF702A002F964B /* MenuVC.swift */; };
 		0445130121EF7B90002F964B /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445130021EF7B90002F964B /* WeatherModel.swift */; };
 		0445130321EF7F65002F964B /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445130221EF7F65002F964B /* Month.swift */; };
@@ -50,9 +49,6 @@
 		044512F221EF539A002F964B /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		044512F421EF5A71002F964B /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		044512F721EF60BE002F964B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		044512FA21EF6BDD002F964B /* HistoryOfWeatherTrends-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HistoryOfWeatherTrends-Bridging-Header.h"; sourceTree = "<group>"; };
-		044512FB21EF6BDE002F964B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		044512FC21EF6BDF002F964B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		044512FE21EF702A002F964B /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		0445130021EF7B90002F964B /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		0445130221EF7F65002F964B /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
@@ -107,7 +103,6 @@
 		044512CB21EF5201002F964B /* HistoryOfWeatherTrends */ = {
 			isa = PBXGroup;
 			children = (
-				044512F921EF6BA4002F964B /* SupportingFiles */,
 				044512F621EF6094002F964B /* Utilities */,
 				044512EF21EF5251002F964B /* Services */,
 				044512EE21EF523E002F964B /* Model */,
@@ -172,16 +167,6 @@
 				044512F721EF60BE002F964B /* Constants.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		044512F921EF6BA4002F964B /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-				044512FB21EF6BDE002F964B /* SWRevealViewController.h */,
-				044512FC21EF6BDF002F964B /* SWRevealViewController.m */,
-				044512FA21EF6BDD002F964B /* HistoryOfWeatherTrends-Bridging-Header.h */,
-			);
-			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		C850ECE4B64CE3FD8EBE3345 /* Pods */ = {
@@ -378,7 +363,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				044512FD21EF6BDF002F964B /* SWRevealViewController.m in Sources */,
 				044512CF21EF5201002F964B /* ViewController.swift in Sources */,
 				044512F321EF539A002F964B /* WeatherViewModel.swift in Sources */,
 				044512F521EF5A71002F964B /* Parser.swift in Sources */,
@@ -554,13 +538,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8ZG3WLBMM;
 				INFOPLIST_FILE = HistoryOfWeatherTrends/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.KrystynaKruchkovska.HistoryOfWeatherTrends;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HistoryOfWeatherTrends/SupportingFiles/HistoryOfWeatherTrends-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -576,13 +561,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8ZG3WLBMM;
 				INFOPLIST_FILE = HistoryOfWeatherTrends/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.KrystynaKruchkovska.HistoryOfWeatherTrends;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HistoryOfWeatherTrends/SupportingFiles/HistoryOfWeatherTrends-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

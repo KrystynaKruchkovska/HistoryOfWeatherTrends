@@ -26,7 +26,7 @@ class Parser {
         // Clearing elements of array by deleting "*" and "#" characters existing in some elements
         var clearMonthlyDataArrays = rawMonthlyDataArrays.map { $0.map { $0.replacingOccurrences(of: "*", with: "") } }
         
-        clearMonthlyDataArrays = rawMonthlyDataArrays.map { $0.map { $0.replacingOccurrences(of: "---", with: "") } }
+        clearMonthlyDataArrays = clearMonthlyDataArrays.map { $0.map { $0.replacingOccurrences(of: "---", with: "") } }
         print(clearMonthlyDataArrays)
         return clearMonthlyDataArrays
     }

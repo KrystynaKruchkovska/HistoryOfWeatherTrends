@@ -10,7 +10,7 @@ import Foundation
 
 struct WeatherModel {
     
-    private let yyyy: Int
+    private let yyyy: Int?
     private let mm: Month?
     private let tmax: Double?
     private let tmin: Double?
