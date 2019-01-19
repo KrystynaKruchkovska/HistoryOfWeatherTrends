@@ -13,3 +13,6 @@ struct Station {
     var url :String
     var name:String
 }
+
+
+

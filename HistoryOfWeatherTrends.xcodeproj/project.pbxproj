@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		040BA8C121F36B95008FA899 /* StationListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BA8C021F36B95008FA899 /* StationListTableVC.swift */; };
 		040BA8C321F36C78008FA899 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BA8C221F36C78008FA899 /* Station.swift */; };
-		040BA8C521F37052008FA899 /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BA8C421F37052008FA899 /* StationCell.swift */; };
+		040BA8C521F37052008FA899 /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BA8C421F37052008FA899 /* DefaultTableViewCell.swift */; };
+		040BA8C721F37FC8008FA899 /* MenuSelectionTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BA8C621F37FC8008FA899 /* MenuSelectionTableVC.swift */; };
 		044512CD21EF5201002F964B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044512CC21EF5201002F964B /* AppDelegate.swift */; };
 		044512CF21EF5201002F964B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044512CE21EF5201002F964B /* ViewController.swift */; };
 		044512D221EF5202002F964B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044512D021EF5202002F964B /* Main.storyboard */; };
@@ -40,7 +41,8 @@
 /* Begin PBXFileReference section */
 		040BA8C021F36B95008FA899 /* StationListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListTableVC.swift; sourceTree = "<group>"; };
 		040BA8C221F36C78008FA899 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
-		040BA8C421F37052008FA899 /* StationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
+		040BA8C421F37052008FA899 /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
+		040BA8C621F37FC8008FA899 /* MenuSelectionTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSelectionTableVC.swift; sourceTree = "<group>"; };
 		044512C921EF5201002F964B /* HistoryOfWeatherTrends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HistoryOfWeatherTrends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		044512CC21EF5201002F964B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		044512CE21EF5201002F964B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +140,8 @@
 				044512CE21EF5201002F964B /* ViewController.swift */,
 				044512FE21EF702A002F964B /* MenuVC.swift */,
 				040BA8C021F36B95008FA899 /* StationListTableVC.swift */,
-				040BA8C421F37052008FA899 /* StationCell.swift */,
+				040BA8C421F37052008FA899 /* DefaultTableViewCell.swift */,
+				040BA8C621F37FC8008FA899 /* MenuSelectionTableVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -374,7 +377,7 @@
 			files = (
 				044512CF21EF5201002F964B /* ViewController.swift in Sources */,
 				044512F321EF539A002F964B /* WeatherViewModel.swift in Sources */,
-				040BA8C521F37052008FA899 /* StationCell.swift in Sources */,
+				040BA8C521F37052008FA899 /* DefaultTableViewCell.swift in Sources */,
 				044512F521EF5A71002F964B /* Parser.swift in Sources */,
 				0445130121EF7B90002F964B /* WeatherDataPoint.swift in Sources */,
 				040BA8C121F36B95008FA899 /* StationListTableVC.swift in Sources */,
@@ -384,6 +387,7 @@
 				040BA8C321F36C78008FA899 /* Station.swift in Sources */,
 				0445130321EF7F65002F964B /* Month.swift in Sources */,
 				044512F821EF60BE002F964B /* Constants.swift in Sources */,
+				040BA8C721F37FC8008FA899 /* MenuSelectionTableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

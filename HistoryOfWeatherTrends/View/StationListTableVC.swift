@@ -11,9 +11,11 @@ import UIKit
 class StationListTableVC: UITableViewController {
     
     var stationsArray:[Station] = CONSTANTS.stations
+    var stationToPass:Station!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.allowsSelection = true
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -26,7 +28,7 @@ class StationListTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CONSTANTS.CELL_IDENTIFIRES.stationCell, for: indexPath) as? StationCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CONSTANTS.CELL_IDENTIFIRES.stationCell, for: indexPath) as? DefaultTableViewCell else {
             fatalError()
         }
         
@@ -36,4 +38,16 @@ class StationListTableVC: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        self.stationToPass =  self.stationsArray[indexPath.row]
+        return indexPath
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == CONSTANTS.SEGUE.toMenuStation) {
+            let vc = segue.destination as? MenuSelectionTableVC
+            vc?.currentStation = self.stationToPass
+        }
+    }
+  
 }

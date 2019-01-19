@@ -18,6 +18,12 @@ struct CONSTANTS {
     struct CELL_IDENTIFIRES {
         static let stationCell = "stationCell"
     }
+    struct SEGUE {
+        static let toMenuStation = "toMenuTableVC"
+    }
+    
+    
+    static let menuSelections = [ "maxTemperature", "minTemperature", "daysOfAirFrost","mmOfRainfall", "hoursOfSunshine"]
     
 }
 

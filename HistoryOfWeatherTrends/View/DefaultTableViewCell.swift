@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StationCell: UITableViewCell {
+class DefaultTableViewCell: UITableViewCell {
 
     @IBOutlet weak var stationNameLbl: UILabel!
     
