@@ -20,6 +20,7 @@ class WeatherViewModel {
         
         do {
             let parsedTextData = try Parser.parse(textData: textData)
+            
             DispatchQueue.main.async {
                 completion(parsedTextData,nil)
             }
@@ -30,7 +31,7 @@ class WeatherViewModel {
     }
     
     func getData( withCompletion completion: @escaping (_ data:[[String]]?,_ error:Error?) -> Void) {
-        self.downloadData(withURL:URL_CONSTANTS.BASE_URL) { (data, error) in
+        self.downloadData(withURL:CONSTANTS.URL.base_url) { (data, error) in
             if let error = error{
                 completion(nil,error)
                 return
@@ -50,33 +51,18 @@ class WeatherViewModel {
             }
         }
     }
+
     
-    func convertDataArrayToWeatherModel(data:[String]) -> WeatherModel{
+    func convertDataArrayToWeatherDataPoint(dataLine:[String]) -> WeatherDataPoint {
+        let year = (Int(dataLine[0]))
+        let month = (Int(dataLine[1]))
+        let maxTemperature = Double(dataLine[2])
+        let minTemperature = Double(dataLine[3])
+        let daysOfAirFrost = Int(dataLine[4])
+        let mmOfRainfall = Double(dataLine[5])
+        let hoursOfSunshine = Double(dataLine[6])
         
-        guard let year = Int(data[0]) else {
-            fatalError()
-        }
-        guard let month = Int(data[1]) else {
-            fatalError()
-        }
-        guard let maxTemperature = Double(data[2]) else {
-            fatalError()
-        }
-        guard let minTemperature = Double(data[3]) else {
-            fatalError()
-        }
-        guard let daysOfairFrost = Int(data[4]) else {
-            fatalError()
-        }
-        guard let mmOfRainfall = Double(data[5]) else {
-            fatalError()
-        }
-        guard let hoursOfSunshine = Double(data[6]) else {
-            fatalError()
-        }
-        
-        return WeatherModel(year: year, month: month, maxTemperature: maxTemperature, minTemperature: minTemperature, daysOfAirFrost: daysOfairFrost, mmOfRainfall: mmOfRainfall, hoursOfSunshine: hoursOfSunshine)
-        
+        return  WeatherDataPoint(year: year!, month: month!, maxTemperature: maxTemperature, minTemperature: minTemperature, daysOfAirFrost: daysOfAirFrost, mmOfRainfall: mmOfRainfall, hoursOfSunshine: hoursOfSunshine)
     }
     
     

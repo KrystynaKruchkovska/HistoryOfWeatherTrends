@@ -16,10 +16,14 @@ class Parser {
         let splittedTextData = textData.split(separator: "\r\n")
         // Defining startIndex where data is started
         var startIndex = 0
-        if let index = splittedTextData.index(of: "              degC    degC    days      mm   hours") { startIndex  = index + 1 }
+        
+        if let index = splittedTextData.index(of: "              degC    degC    days      mm   hours") {
+            startIndex  = index + 1
+        }
         
         // Creating of monthly data arrays in needed range
         var rawMonthlyDataArrays = splittedTextData[startIndex..<splittedTextData.count].map { $0.split(separator: " ") }
+    
         // Removing unnecessery "Provisional" element from some arrays
         rawMonthlyDataArrays = rawMonthlyDataArrays.compactMap { $0.filter { $0 != "Provisional" } }
         

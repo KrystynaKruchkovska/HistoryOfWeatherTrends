@@ -8,7 +8,18 @@
 
 import Foundation
 
-struct URL_CONSTANTS {
-    static let BASE_URL = "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/bradforddata.txt"
+struct CONSTANTS {
+    struct URL {
+        static let base_url = "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/bradforddata.txt"
+    }
+    
+    static let stations = [Station(url:"https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/bradforddata.txt", name:"Meteorological station Bradford")]
+    
+    struct CELL_IDENTIFIRES {
+        static let stationCell = "stationCell"
+    }
     
 }
+
+
+

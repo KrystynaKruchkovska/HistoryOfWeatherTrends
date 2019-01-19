@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WeatherModel {
+struct WeatherDataPoint {
     
     private let yyyy: Int?
     private let mm: Month?
