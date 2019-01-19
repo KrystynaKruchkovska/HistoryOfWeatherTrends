@@ -11,7 +11,7 @@ import Foundation
 
 class Parser {
     
-    class func parse(textData: String) throws -> [[String]] {
+    class func parse(textData: String) -> [[String]] {
         // Splitting raw string in to array by "\r\n"
         let splittedTextData = textData.split(separator: "\r\n")
         // Defining startIndex where data is started

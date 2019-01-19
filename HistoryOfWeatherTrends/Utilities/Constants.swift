@@ -9,21 +9,19 @@
 import Foundation
 
 struct CONSTANTS {
-    struct URL {
-        static let base_url = "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/bradforddata.txt"
-    }
-    
-    static let stations = [Station(url:"https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/bradforddata.txt", name:"Meteorological station Bradford")]
-    
+ 
     struct CELL_IDENTIFIRES {
         static let stationCell = "stationCell"
     }
-    struct SEGUE {
+    
+    struct SEGUES {
         static let toMenuStation = "toMenuTableVC"
+        static let toDataPresentationTableVC = "toDataPresentationTableVC"
     }
     
+    static let menuSelections = [ "Maximum temperature", "Minimum temperature", "Days of air frost","Amount of rain fall", "Hours of sunshine"]
     
-    static let menuSelections = [ "maxTemperature", "minTemperature", "daysOfAirFrost","mmOfRainfall", "hoursOfSunshine"]
+    static let stations = [Station(url:"https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/bradforddata.txt", name:"Meteorological station Bradford")]
     
 }
 

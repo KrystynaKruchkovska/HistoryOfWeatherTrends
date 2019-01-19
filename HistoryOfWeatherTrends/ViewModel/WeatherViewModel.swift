@@ -9,6 +9,8 @@
 import Foundation
 
 class WeatherViewModel {
+    
+    var weatherDataPoint:[WeatherDataPoint] = []
     private let weatherService =  WeatherService()
     
     
@@ -18,42 +20,50 @@ class WeatherViewModel {
     
     func parseData(textData:String, withCompletion completion: @escaping (_ data:[[String]]?,_ error:Error?) -> Void){
         
-        do {
-            let parsedTextData = try Parser.parse(textData: textData)
-            
-            DispatchQueue.main.async {
-                completion(parsedTextData,nil)
-            }
-            
-        } catch let error as NSError {
-            completion(nil,error)
+        
+        let parsedTextData = Parser.parse(textData: textData)
+        
+        DispatchQueue.main.async {
+            completion(parsedTextData,nil)
         }
+        
     }
     
-    func getData( withCompletion completion: @escaping (_ data:[[String]]?,_ error:Error?) -> Void) {
-        self.downloadData(withURL:CONSTANTS.URL.base_url) { (data, error) in
-            if let error = error{
-                completion(nil,error)
+    func getWeatherData(url:String, withCompletion completion: @escaping (_ error:Error?) -> Void) {
+        self.downloadData(withURL:url) { (data, error) in
+            
+            if let error = error {
+                completion(error)
                 return
             }
             
             if let data = data {
                 self.parseData(textData: data, withCompletion: { (dataarray, error) in
                     if let error = error {
-                        print (error)
+                        completion(error)
                         return
                     }
-                    if let dataArray = dataarray {
-                        completion(dataArray,nil)
                     
+                    if let dataArray = dataarray {
+                        self.weatherDataPoint = self.convertToWeatherDataPoints(dataArray: dataArray)
+                        completion(nil)
+                    } else {
+                        completion(createInternalError())
                     }
                 })
+            } else {
+                completion(createInternalError())
             }
         }
     }
-
     
-    func convertDataArrayToWeatherDataPoint(dataLine:[String]) -> WeatherDataPoint {
+    func convertToWeatherDataPoints(dataArray:[[String]]) -> [WeatherDataPoint] {
+        return dataArray.map({ (element) -> WeatherDataPoint in
+            return self.convertToWeatherDataPoint(dataLine: element)
+        })
+    }
+    
+    func convertToWeatherDataPoint(dataLine:[String]) -> WeatherDataPoint {
         let year = (Int(dataLine[0]))
         let month = (Int(dataLine[1]))
         let maxTemperature = Double(dataLine[2])

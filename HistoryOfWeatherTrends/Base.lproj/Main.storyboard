@@ -6,25 +6,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HistoryOfWeatherTrends" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-791" y="123"/>
-        </scene>
         <!--StationList-->
         <scene sceneID="LDe-8b-3gW">
             <objects>
@@ -106,6 +90,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="stationNameLbl" destination="JTa-I5-wJV" id="Web-A8-qBV"/>
+                                    <segue destination="XdH-Un-hYK" kind="show" identifier="toDataPresentationTableVC" id="UCw-2m-qcM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -123,11 +108,11 @@
             </objects>
             <point key="canvasLocation" x="2476" y="555"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Data Presentation TableVC-->
         <scene sceneID="10N-kM-OjS">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xWI-Wx-c7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="XdH-Un-hYK" sceneMemberID="viewController">
+                <tableViewController id="XdH-Un-hYK" customClass="DataPresentationTableVC" customModule="HistoryOfWeatherTrends" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kB5-N9-YRd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,7 +134,7 @@
                     </tableView>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="3158" y="555"/>
+            <point key="canvasLocation" x="3193" y="555"/>
         </scene>
         <!--Item-->
         <scene sceneID="ZDv-A2-KZ7">

@@ -10,14 +10,20 @@ import UIKit
 
 class MenuSelectionTableVC: UITableViewController {
     
+    var weatherViewModel:WeatherViewModel!
     var currentStation:Station!
+    var selectedElementtoPass:String!
     let menuSelections = CONSTANTS.menuSelections
     
     @IBOutlet weak var navigashionTitle: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       self.navigashionTitle.title = self.currentStation.name
+        self.navigashionTitle.title = self.currentStation.name
+        
+        self.weatherViewModel.getWeatherData(url:self.currentStation.url) { (error) in
+            
+        }
 
     }
 
@@ -42,6 +48,18 @@ class MenuSelectionTableVC: UITableViewController {
         
         return cell
     }
-
-
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        self.selectedElementtoPass =  self.menuSelections[indexPath.row]
+        return indexPath
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == CONSTANTS.SEGUES.toDataPresentationTableVC) {
+            let vc = segue.destination as? DataPresentationTableVC
+            vc?.weatherViewModel = self.weatherViewModel
+            vc?.selectedElement = selectedElementtoPass
+        }
+    }
+    
 }

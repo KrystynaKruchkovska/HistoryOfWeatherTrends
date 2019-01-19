@@ -9,7 +9,7 @@
 import UIKit
 
 class StationListTableVC: UITableViewController {
-    
+    var weatherViewModel = WeatherViewModel()
     var stationsArray:[Station] = CONSTANTS.stations
     var stationToPass:Station!
     
@@ -44,9 +44,11 @@ class StationListTableVC: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == CONSTANTS.SEGUE.toMenuStation) {
+        if (segue.identifier == CONSTANTS.SEGUES.toMenuStation) {
             let vc = segue.destination as? MenuSelectionTableVC
             vc?.currentStation = self.stationToPass
+            vc?.weatherViewModel = self.weatherViewModel
+            
         }
     }
   
