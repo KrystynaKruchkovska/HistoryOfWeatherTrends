@@ -1,2 +1,5 @@
 Pods/
 .DS_Store
+Podfile.lock
+HistoryOfWeatherTrends.xcworkspace
+HistoryOfWeatherTrends.xcworkspace/xcuserdata/mac.xcuserdatad/UserInterfaceState.xcuserstate
