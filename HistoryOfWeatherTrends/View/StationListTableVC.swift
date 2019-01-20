@@ -45,7 +45,7 @@ class StationListTableVC: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == CONSTANTS.SEGUES.toMenuStation) {
-            let vc = segue.destination as? MenuSelectionTableVC
+            let vc = segue.destination as? MenuSelectionVC
             vc?.currentStation = self.stationToPass
             vc?.weatherViewModel = self.weatherViewModel
             

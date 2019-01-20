@@ -10,7 +10,7 @@
 		040BA8C121F36B95008FA899 /* StationListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BA8C021F36B95008FA899 /* StationListTableVC.swift */; };
 		040BA8C321F36C78008FA899 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BA8C221F36C78008FA899 /* Station.swift */; };
 		040BA8C521F37052008FA899 /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BA8C421F37052008FA899 /* DefaultTableViewCell.swift */; };
-		040BA8C721F37FC8008FA899 /* MenuSelectionTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BA8C621F37FC8008FA899 /* MenuSelectionTableVC.swift */; };
+		040BA8C721F37FC8008FA899 /* MenuSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BA8C621F37FC8008FA899 /* MenuSelectionVC.swift */; };
 		040BA8CB21F3AC0A008FA899 /* DataPresentationTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BA8CA21F3AC0A008FA899 /* DataPresentationTableVC.swift */; };
 		040BA8CD21F3AE6B008FA899 /* MenuElementsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BA8CC21F3AE6B008FA899 /* MenuElementsEnum.swift */; };
 		040BA8CF21F3C44B008FA899 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BA8CE21F3C44B008FA899 /* Utils.swift */; };
@@ -43,7 +43,7 @@
 		040BA8C021F36B95008FA899 /* StationListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListTableVC.swift; sourceTree = "<group>"; };
 		040BA8C221F36C78008FA899 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		040BA8C421F37052008FA899 /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
-		040BA8C621F37FC8008FA899 /* MenuSelectionTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSelectionTableVC.swift; sourceTree = "<group>"; };
+		040BA8C621F37FC8008FA899 /* MenuSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSelectionVC.swift; sourceTree = "<group>"; };
 		040BA8CA21F3AC0A008FA899 /* DataPresentationTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPresentationTableVC.swift; sourceTree = "<group>"; };
 		040BA8CC21F3AE6B008FA899 /* MenuElementsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuElementsEnum.swift; sourceTree = "<group>"; };
 		040BA8CE21F3C44B008FA899 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 			children = (
 				040BA8C021F36B95008FA899 /* StationListTableVC.swift */,
 				040BA8C421F37052008FA899 /* DefaultTableViewCell.swift */,
-				040BA8C621F37FC8008FA899 /* MenuSelectionTableVC.swift */,
+				040BA8C621F37FC8008FA899 /* MenuSelectionVC.swift */,
 				040BA8CA21F3AC0A008FA899 /* DataPresentationTableVC.swift */,
 			);
 			path = View;
@@ -390,7 +390,7 @@
 				040BA8CD21F3AE6B008FA899 /* MenuElementsEnum.swift in Sources */,
 				0445130321EF7F65002F964B /* Month.swift in Sources */,
 				044512F821EF60BE002F964B /* Constants.swift in Sources */,
-				040BA8C721F37FC8008FA899 /* MenuSelectionTableVC.swift in Sources */,
+				040BA8C721F37FC8008FA899 /* MenuSelectionVC.swift in Sources */,
 				040BA8CB21F3AC0A008FA899 /* DataPresentationTableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

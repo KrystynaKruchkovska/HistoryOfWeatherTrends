@@ -33,6 +33,10 @@ class WeatherService {
                     guard let textData = String(data: data, encoding: String.Encoding.utf8) else {
                         return
                     }
+                  
+                        Thread.sleep(forTimeInterval: 3)
+                    
+                    
                     completion(textData,nil)
             })
             

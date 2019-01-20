@@ -15,7 +15,7 @@ struct CONSTANTS {
     }
     
     struct SEGUES {
-        static let toMenuStation = "toMenuTableVC"
+        static let toMenuStation = "toMenuVC"
         static let toDataPresentationTableVC = "toDataPresentationTableVC"
     }
     

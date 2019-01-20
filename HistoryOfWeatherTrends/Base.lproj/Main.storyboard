@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,7 +42,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="stationNameLbl" destination="DwP-Bc-R70" id="ddn-41-5RG"/>
-                                    <segue destination="nI6-uw-kD9" kind="show" identifier="toMenuTableVC" id="Yj6-4O-pCZ"/>
+                                    <segue destination="Naj-Dw-TEr" kind="show" identifier="toMenuVC" id="dBz-og-XGB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -59,59 +60,74 @@
             </objects>
             <point key="canvasLocation" x="1740" y="554.57271364317842"/>
         </scene>
-        <!--Title-->
-        <scene sceneID="Idw-JT-N8T">
+        <!--StationTitle-->
+        <scene sceneID="LYl-6T-NIU">
             <objects>
-                <tableViewController id="nI6-uw-kD9" customClass="MenuSelectionTableVC" customModule="HistoryOfWeatherTrends" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BBO-8a-OpC">
+                <viewController id="Naj-Dw-TEr" customClass="MenuSelectionVC" customModule="HistoryOfWeatherTrends" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BCk-LU-mFc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hCB-7c-Cr9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stationCell" rowHeight="72" id="zVl-HG-yZQ" customClass="DefaultTableViewCell" customModule="HistoryOfWeatherTrends" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zVl-HG-yZQ" id="OEc-wi-Hds">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNU-an-PoG">
+                                                    <rect key="frame" x="168" y="25.5" width="39" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.13725490200000001" green="0.10980392160000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="zNU-an-PoG" firstAttribute="centerY" secondItem="OEc-wi-Hds" secondAttribute="centerY" id="I1O-qQ-Q8I"/>
+                                                <constraint firstItem="zNU-an-PoG" firstAttribute="centerX" secondItem="OEc-wi-Hds" secondAttribute="centerX" id="skh-ts-R0i"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="stationNameLbl" destination="zNU-an-PoG" id="a6r-dj-iGb"/>
+                                            <segue destination="XdH-Un-hYK" kind="show" identifier="toDataPresentationTableVC" id="Aax-QS-bfA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GFy-5v-ooD">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stationCell" rowHeight="96" id="Ktx-LO-RjG" customClass="DefaultTableViewCell" customModule="HistoryOfWeatherTrends" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="96"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ktx-LO-RjG" id="Fy6-JH-bZW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTa-I5-wJV">
-                                            <rect key="frame" x="168" y="37.5" width="39" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.13725490200000001" green="0.10980392160000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="JTa-I5-wJV" firstAttribute="centerX" secondItem="Fy6-JH-bZW" secondAttribute="centerX" id="KcZ-Rz-zQQ"/>
-                                        <constraint firstItem="JTa-I5-wJV" firstAttribute="centerY" secondItem="Fy6-JH-bZW" secondAttribute="centerY" id="v3n-7t-Kaw"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="stationNameLbl" destination="JTa-I5-wJV" id="Web-A8-qBV"/>
-                                    <segue destination="XdH-Un-hYK" kind="show" identifier="toDataPresentationTableVC" id="UCw-2m-qcM"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="nI6-uw-kD9" id="0hO-4p-YpE"/>
-                            <outlet property="delegate" destination="nI6-uw-kD9" id="YnQ-NA-LjF"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="24N-Fb-hm3"/>
+                        <constraints>
+                            <constraint firstItem="hCB-7c-Cr9" firstAttribute="bottom" secondItem="wAP-fJ-f2V" secondAttribute="bottom" id="24S-Qx-HAN"/>
+                            <constraint firstItem="hCB-7c-Cr9" firstAttribute="leading" secondItem="wAP-fJ-f2V" secondAttribute="leading" id="2Az-ev-zbz"/>
+                            <constraint firstItem="GFy-5v-ooD" firstAttribute="centerX" secondItem="BCk-LU-mFc" secondAttribute="centerX" id="N0I-f2-lIL"/>
+                            <constraint firstItem="hCB-7c-Cr9" firstAttribute="top" secondItem="BCk-LU-mFc" secondAttribute="top" id="STH-WA-FuG"/>
+                            <constraint firstItem="GFy-5v-ooD" firstAttribute="centerY" secondItem="BCk-LU-mFc" secondAttribute="centerY" id="gXd-nK-uea"/>
+                            <constraint firstItem="hCB-7c-Cr9" firstAttribute="trailing" secondItem="wAP-fJ-f2V" secondAttribute="trailing" id="ioY-aX-4CW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wAP-fJ-f2V"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="StationTitle" id="frW-M8-eiR"/>
                     <connections>
-                        <outlet property="navigashionTitle" destination="24N-Fb-hm3" id="9lx-vb-3Jb"/>
+                        <outlet property="navigashionTitle" destination="frW-M8-eiR" id="y54-Xf-iFW"/>
+                        <outlet property="spinner" destination="GFy-5v-ooD" id="0IG-Ao-veL"/>
+                        <outlet property="tableView" destination="hCB-7c-Cr9" id="0VY-9J-AmG"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Fc-0F-ePD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tGw-ir-tVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2476" y="555"/>
         </scene>
         <!--Data Presentation TableVC-->
         <scene sceneID="10N-kM-OjS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xWI-Wx-c7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="XdH-Un-hYK" customClass="DataPresentationTableVC" customModule="HistoryOfWeatherTrends" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kB5-N9-YRd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -133,6 +149,7 @@
                         </connections>
                     </tableView>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xWI-Wx-c7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3193" y="555"/>
         </scene>
