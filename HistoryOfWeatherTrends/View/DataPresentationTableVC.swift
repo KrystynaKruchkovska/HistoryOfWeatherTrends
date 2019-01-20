@@ -40,28 +40,53 @@ class DataPresentationTableVC: UITableViewController {
         }
         
         let value = getPointValue(weatherDataPoint: weatherDataPoint)
-        cell.setupCell(year: weatherDataPoint.yyyy, month: weatherDataPoint.mm, value: value)
+        
+        cell.setupCell(year: self.valueOrNotAvailable(weatherDataPoint.yyyy),
+                       month: self.valueOrNotAvailable(weatherDataPoint.mm?.rawValue),
+                       value: self.valueOrNotAvailable(value))
         
         return cell
     }
     
     private func getPointValue(weatherDataPoint:WeatherDataPoint) -> Double? {
         
-        if selectedElement == "Maximum temperature" {
-            return weatherDataPoint.tmax!
-        } else if selectedElement == "Minimum temperature" {
-            return weatherDataPoint.tmin!
-        }else if selectedElement == "Days of air frost"{
-            return Double( weatherDataPoint.af!)
-        }else if selectedElement == "Amount of rain fall"{
-            return weatherDataPoint.rain!
-        }else if selectedElement == "Hours of sunshine"{
-            return weatherDataPoint.sun!
+        var result:Double?
+        switch selectedElement{
+            
+        case "Maximum temperature":
+            result =  weatherDataPoint.tmax
+        case "Minimum temperature":
+            result =  weatherDataPoint.tmin
+        case "Days of air frost":
+            if let af = weatherDataPoint.af {
+                result =  Double(af)
+            }else{
+                result =  nil
+            }
+        case "Amount of rain fall":
+            result = weatherDataPoint.rain
+        case "Hours of sunshine":
+           result =   weatherDataPoint.sun
+        default:
+            print("() is outside of the box")
         }
         
-        return nil
+        return result
     }
     
+    private func valueOrNotAvailable(_ value:Int?) -> String {
+        if let value = value {
+            return String(value)
+        }
+        
+        return CONSTANTS.valueNotAvailable
+    }
     
-    
+    private func valueOrNotAvailable(_ value:Double?) -> String {
+        if let value = value {
+            return String(value)
+        }
+        
+        return CONSTANTS.valueNotAvailable
+    }
 }

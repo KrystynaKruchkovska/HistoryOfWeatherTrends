@@ -9,25 +9,15 @@
 import UIKit
 
 class DataPresentTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var yearLbl: UILabel!
     @IBOutlet weak var valueLbl: UILabel!
-    @IBOutlet weak var mounthLbl: UILabel!
+    @IBOutlet weak var monthLbl: UILabel!
     
-    func setupCell(year:Int?, month:Month?, value:Double?){
-        guard let year = year else {
-            return
-        }
-        guard let month = month else {
-            return
-        }
-        guard let value = value else {
-            return
-        }
-        
-        self.yearLbl.text = String(year)
-        self.mounthLbl.text = String(month.rawValue)
-        self.valueLbl.text = String(value)
+    func setupCell(year:String, month:String, value:String) {
+        self.yearLbl.text = year
+        self.monthLbl.text = month
+        self.valueLbl.text = value
     }
-
+    
 }

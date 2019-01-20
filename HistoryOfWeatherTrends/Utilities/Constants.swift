@@ -24,6 +24,7 @@ struct CONSTANTS {
     
     static let stations = [Station(url:"https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/bradforddata.txt", name:"Meteorological station Bradford")]
     
+    static let valueNotAvailable = "Not available"
 }
 
 

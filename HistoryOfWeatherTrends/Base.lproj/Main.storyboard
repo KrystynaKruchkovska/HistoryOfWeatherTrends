@@ -190,7 +190,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="mounthLbl" destination="Sf8-Li-dF0" id="Bis-Go-qx0"/>
+                                    <outlet property="monthLbl" destination="Sf8-Li-dF0" id="Bis-Go-qx0"/>
                                     <outlet property="valueLbl" destination="ewR-NU-1Sw" id="gMn-td-9pT"/>
                                     <outlet property="yearLbl" destination="XDK-xU-J2Y" id="06n-G1-OTc"/>
                                 </connections>
