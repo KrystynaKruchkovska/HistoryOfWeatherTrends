@@ -13,9 +13,7 @@ class WeatherService {
     
     func downloadData(withURL url: String, withCompletion completion: @escaping (_ data:String?,_ error:Error?) -> Void) {
         
-        DispatchQueue.global(qos: .userInteractive).async {
-            
-            Alamofire.request(url, method: .get).responseData(queue: DispatchQueue.global(qos: .userInitiated)
+            Alamofire.request(url, method: .get).responseData(queue: DispatchQueue.global(qos: .utility)
                 , completionHandler: { (response) in
                     
                     if let error = response.result.error {
@@ -24,9 +22,7 @@ class WeatherService {
                     }
                     
                     guard let data = response.data else {
-                        // completion handler with error
-                        // create our own error
-                        completion( nil, errSecInternalError as? Error)
+                        completion(nil, createInternalError())
                         return
                     }
                     
@@ -34,15 +30,9 @@ class WeatherService {
                         return
                     }
                   
-                        Thread.sleep(forTimeInterval: 3)
-                    
-                    
                     completion(textData,nil)
             })
-            
-        }
-        
-        
+       
     }
     
 }

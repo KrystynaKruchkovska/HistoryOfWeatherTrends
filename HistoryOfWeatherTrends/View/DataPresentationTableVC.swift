@@ -42,7 +42,7 @@ class DataPresentationTableVC: UITableViewController {
         let value = getPointValue(weatherDataPoint: weatherDataPoint)
         
         cell.setupCell(year: self.valueOrNotAvailable(weatherDataPoint.yyyy),
-                       month: self.valueOrNotAvailable(weatherDataPoint.mm?.rawValue),
+                       month: self.valueOrNotAvailable(weatherDataPoint.mm),
                        value: self.valueOrNotAvailable(value))
         
         return cell
@@ -74,17 +74,9 @@ class DataPresentationTableVC: UITableViewController {
         return result
     }
     
-    private func valueOrNotAvailable(_ value:Int?) -> String {
+    private func valueOrNotAvailable<T>(_ value:T?) -> String {
         if let value = value {
-            return String(value)
-        }
-        
-        return CONSTANTS.valueNotAvailable
-    }
-    
-    private func valueOrNotAvailable(_ value:Double?) -> String {
-        if let value = value {
-            return String(value)
+            return String(describing: value)
         }
         
         return CONSTANTS.valueNotAvailable
