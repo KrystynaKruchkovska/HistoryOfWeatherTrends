@@ -10,12 +10,11 @@ import UIKit
 
 class DataPresentTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var yearLbl: UILabel!
     @IBOutlet weak var valueLbl: UILabel!
     @IBOutlet weak var mounthLbl: UILabel!
     
-    func setupCell(year:Int?,month:Month?,value:Double?){
+    func setupCell(year:Int?, month:Month?, value:Double?){
         guard let year = year else {
             return
         }

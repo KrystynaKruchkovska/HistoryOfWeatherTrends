@@ -141,11 +141,10 @@
 		044512EC21EF522A002F964B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04FD51B321F4A2CA00B8149B /* Cell */,
 				040BA8C021F36B95008FA899 /* StationListTableVC.swift */,
-				040BA8C421F37052008FA899 /* DefaultTableViewCell.swift */,
 				040BA8C621F37FC8008FA899 /* MenuSelectionVC.swift */,
 				040BA8CA21F3AC0A008FA899 /* DataPresentationTableVC.swift */,
-				04FD51B121F49CCD00B8149B /* DataPresentTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +184,15 @@
 				040BA8CE21F3C44B008FA899 /* Utils.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		04FD51B321F4A2CA00B8149B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				040BA8C421F37052008FA899 /* DefaultTableViewCell.swift */,
+				04FD51B121F49CCD00B8149B /* DataPresentTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		C850ECE4B64CE3FD8EBE3345 /* Pods */ = {

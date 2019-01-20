@@ -125,7 +125,7 @@
             </objects>
             <point key="canvasLocation" x="2476" y="555"/>
         </scene>
-        <!--Data Presentation TableVC-->
+        <!--ValueType-->
         <scene sceneID="10N-kM-OjS">
             <objects>
                 <tableViewController id="XdH-Un-hYK" customClass="DataPresentationTableVC" customModule="HistoryOfWeatherTrends" customModuleProvider="target" sceneMemberID="viewController">
@@ -141,23 +141,41 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="97" translatesAutoresizingMaskIntoConstraints="NO" id="xh9-Pe-FZn">
-                                            <rect key="frame" x="41.5" y="25.5" width="292.5" height="20.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xh9-Pe-FZn">
+                                            <rect key="frame" x="29.5" y="25.5" width="316" height="20.5"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRB-gd-CWC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="38.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yyyy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDK-xU-J2Y">
-                                                    <rect key="frame" x="0.0" y="0.0" width="35.5" height="20.5"/>
+                                                    <rect key="frame" x="54.5" y="0.0" width="35.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="month:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXE-Lf-6X8">
+                                                    <rect key="frame" x="106" y="0.0" width="54" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sf8-Li-dF0">
-                                                    <rect key="frame" x="132.5" y="0.0" width="29" height="20.5"/>
+                                                    <rect key="frame" x="176" y="0.0" width="29" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNE-f8-x18">
+                                                    <rect key="frame" x="221" y="0.0" width="45" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewR-NU-1Sw">
-                                                    <rect key="frame" x="258.5" y="0.0" width="34" height="20.5"/>
+                                                    <rect key="frame" x="282" y="0.0" width="34" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -167,8 +185,8 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.13725490200000001" green="0.10980392160000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstItem="xh9-Pe-FZn" firstAttribute="centerX" secondItem="3p0-Kx-lGS" secondAttribute="centerX" id="7Ve-iQ-ILB"/>
-                                        <constraint firstItem="xh9-Pe-FZn" firstAttribute="centerY" secondItem="3p0-Kx-lGS" secondAttribute="centerY" id="HVU-dX-Pqc"/>
+                                        <constraint firstItem="xh9-Pe-FZn" firstAttribute="centerX" secondItem="3p0-Kx-lGS" secondAttribute="centerX" id="gTf-Vv-Lbc"/>
+                                        <constraint firstItem="xh9-Pe-FZn" firstAttribute="centerY" secondItem="3p0-Kx-lGS" secondAttribute="centerY" id="xRn-eN-84o"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -183,6 +201,10 @@
                             <outlet property="delegate" destination="XdH-Un-hYK" id="0Us-k8-CoF"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="ValueType" id="xQp-Eo-ais"/>
+                    <connections>
+                        <outlet property="valueType" destination="xQp-Eo-ais" id="c1Z-UO-hGv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xWI-Wx-c7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -13,31 +13,21 @@ class DataPresentationTableVC: UITableViewController {
     var weatherViewModel:WeatherViewModel!
     var selectedElement:String!
     
+    @IBOutlet weak var valueType: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.valueType.title = selectedElement
     }
     
-    func readWeatherPoints() {
     
-        let indexInSelection = CONSTANTS.menuSelections.firstIndex(of: selectedElement)
-        
-        for dataPoint in self.weatherViewModel.weatherDataPoints {
-            if indexInSelection == 0 {
-                guard let value = dataPoint.tmax else {
-                    continue
-                }
-                
-            }
-        }
-        
-    }
-
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.weatherViewModel.weatherDataPoints.count
     }
@@ -49,9 +39,29 @@ class DataPresentationTableVC: UITableViewController {
             fatalError()
         }
         
-        cell.setupCell(year: weatherDataPoint.yyyy, month: weatherDataPoint.mm, value: weatherDataPoint.tmax)
+        let value = getPointValue(weatherDataPoint: weatherDataPoint)
+        cell.setupCell(year: weatherDataPoint.yyyy, month: weatherDataPoint.mm, value: value)
         
         return cell
     }
-
+    
+    private func getPointValue(weatherDataPoint:WeatherDataPoint) -> Double? {
+        
+        if selectedElement == "Maximum temperature" {
+            return weatherDataPoint.tmax!
+        } else if selectedElement == "Minimum temperature" {
+            return weatherDataPoint.tmin!
+        }else if selectedElement == "Days of air frost"{
+            return Double( weatherDataPoint.af!)
+        }else if selectedElement == "Amount of rain fall"{
+            return weatherDataPoint.rain!
+        }else if selectedElement == "Hours of sunshine"{
+            return weatherDataPoint.sun!
+        }
+        
+        return nil
+    }
+    
+    
+    
 }

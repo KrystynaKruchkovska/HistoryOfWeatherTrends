@@ -9,11 +9,3 @@
 import Foundation
 
 
-enum SelectedMenuElements:String {
-    
-    case maxTemp = "Maximum temperature"
-    case minTemp = "Minimum temperature"
-    case af = "Days of air frost"
-    case mmOfRainFall = "Amount of rain fall"
-    case hoursOfSunshine = "Hours of sunshine"
-}
