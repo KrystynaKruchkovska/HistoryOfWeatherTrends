@@ -9,9 +9,9 @@
 import Foundation
 
 
-class Parser {
+ class Parser {
     
-    class func parse(textData: String) -> [[String]] {
+     func parse(textData: String) -> [[String]] {
         // Splitting raw string in to array by "\r\n"
         let splittedTextData = textData.split(separator: "\r\n")
         // Defining startIndex where data is started
@@ -21,15 +21,25 @@ class Parser {
             startIndex  = index + 1
         }
         
-        // Creating of monthly data arrays in needed range
-        var rawMonthlyDataArrays = splittedTextData[startIndex..<splittedTextData.count].map { $0.split(separator: " ") }
+        let rangeArray = createRawArrayRange(splittedTextData: splittedTextData, startIndex: startIndex)
+
+        return clearArray(rawMonthlyDataArrays: rangeArray)
+    }
     
+    private func createRawArrayRange(splittedTextData:[Substring.SubSequence], startIndex:Int) -> [[Substring.SubSequence]]{
+        
+        var rawMonthlyDataArrays = splittedTextData[startIndex..<splittedTextData.count].map { $0.split(separator: " ") }
+        
         // Removing unnecessery "Provisional" element from some arrays
         rawMonthlyDataArrays = rawMonthlyDataArrays.compactMap { $0.filter { $0 != "Provisional" } }
         rawMonthlyDataArrays = rawMonthlyDataArrays.compactMap { $0.filter { $0 != "Site" } }
         rawMonthlyDataArrays = rawMonthlyDataArrays.compactMap { $0.filter { $0 != "closed" } }
-
-        // Clearing elements of array by deleting "*" and "#" characters existing in some elements
+        return rawMonthlyDataArrays
+    }
+    
+    
+    private func clearArray(rawMonthlyDataArrays:[[Substring.SubSequence]]) -> [[String]]{
+        
         var clearMonthlyDataArrays = rawMonthlyDataArrays.map { $0.map { $0.replacingOccurrences(of: "*", with: "") } }
         
         clearMonthlyDataArrays = clearMonthlyDataArrays.map { $0.map { $0.replacingOccurrences(of: "#", with: "") } }
@@ -37,6 +47,7 @@ class Parser {
         clearMonthlyDataArrays = clearMonthlyDataArrays.map { $0.map { $0.replacingOccurrences(of: "---", with: "") } }
         
         clearMonthlyDataArrays = clearMonthlyDataArrays.filter { $0 != [] }
+        
         
         return clearMonthlyDataArrays
     }

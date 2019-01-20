@@ -6,6 +6,8 @@ target 'HistoryOfWeatherTrends' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod "LaunchScreen"
+  
 
   target 'HistoryOfWeatherTrendsTests' do
     inherit! :search_paths

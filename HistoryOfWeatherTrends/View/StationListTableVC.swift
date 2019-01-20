@@ -15,7 +15,6 @@ class StationListTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.allowsSelection = true
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

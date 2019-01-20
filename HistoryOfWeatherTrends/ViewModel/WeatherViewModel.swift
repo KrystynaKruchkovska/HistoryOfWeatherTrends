@@ -10,11 +10,16 @@ import Foundation
 
 class WeatherViewModel {
     
+    let parser = Parser()
     var weatherDataPoints:[WeatherDataPoint] = []
     private let weatherService =  WeatherService()
     
     func getWeatherData(url:String, withCompletion completion: @escaping (_ error:Error?) -> Void) {
-        self.downloadData(withURL:url) { (data, error) in
+        self.downloadData(withURL:url) { [weak self] (data, error) in
+            
+            guard let unwrapedself = self else{
+                return
+            }
             
             if let error = error {
                 completion(error)
@@ -26,19 +31,20 @@ class WeatherViewModel {
                 return
             }
             
-            let dataarray = self.parseData(textData: data)
+            let dataarray = unwrapedself.parseData(textData: data)
             
-            self.weatherDataPoints = self.convertToWeatherDataPoints(dataArray: dataarray)
+            unwrapedself.weatherDataPoints = unwrapedself.convertToWeatherDataPoints(dataArray: dataarray)
             completion(nil)
         }
     }
     
     private func downloadData(withURL url: String, withCompletion completion: @escaping (_ data:String?,_ error:Error?) -> Void) {
         self.weatherService.downloadData(withURL: url, withCompletion: completion)
+    
     }
     
     private func parseData(textData:String) -> [[String]]{
-        return Parser.parse(textData: textData)
+        return parser.parse(textData: textData)
     }
     
     private func convertToWeatherDataPoints(dataArray:[[String]]) -> [WeatherDataPoint] {

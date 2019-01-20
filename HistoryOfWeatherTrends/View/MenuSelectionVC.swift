@@ -31,27 +31,30 @@ class MenuSelectionVC: UIViewController, UITableViewDelegate,UITableViewDataSour
     // MARK: - Table view data source
     
     func downloadData(){
-        self.startSpinner()
-        self.weatherViewModel.getWeatherData(url:self.currentStation.url) { (error) in
-            self.menuSelections = CONSTANTS.menuSelections
+        self.startSpinnerAndControlOff()
+        self.weatherViewModel.getWeatherData(url:self.currentStation.url) { [weak self] (error) in
+            self?.menuSelections = CONSTANTS.menuSelections
             
             DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.stopSpinner()
+                self?.tableView.reloadData()
+                self?.stopSpinnerAndControlOn()
             }
         }
     }
     
-    func startSpinner(){
+    func startSpinnerAndControlOff(){
         DispatchQueue.main.async {
             self.spinner.isHidden = false
-            self.spinner.startAnimating()        }
+            self.spinner.startAnimating()
+            self.view.isUserInteractionEnabled = false
+        }
     }
     
-    func stopSpinner(){
+    func stopSpinnerAndControlOn(){
         DispatchQueue.main.async {
             self.spinner.isHidden = true
             self.spinner.stopAnimating()
+            self.view.isUserInteractionEnabled = true
         }
     }
 
