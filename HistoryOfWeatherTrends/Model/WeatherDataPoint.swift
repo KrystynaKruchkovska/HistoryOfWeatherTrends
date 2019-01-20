@@ -10,13 +10,13 @@ import Foundation
 
 struct WeatherDataPoint {
     
-    private let yyyy: Int?
-    private let mm: Month?
-    private let tmax: Double?
-    private let tmin: Double?
-    private let af: Int?
-    private let rain: Double?
-    private let sun: Double?
+    let yyyy: Int?
+    let mm: Month?
+    let tmax: Double?
+    let tmin: Double?
+    let af: Int?
+    let rain: Double?
+    let sun: Double?
     
     init(year: Int, month: Int, maxTemperature: Double?, minTemperature: Double?, daysOfAirFrost: Int?, mmOfRainfall: Double?, hoursOfSunshine: Double?) {
         

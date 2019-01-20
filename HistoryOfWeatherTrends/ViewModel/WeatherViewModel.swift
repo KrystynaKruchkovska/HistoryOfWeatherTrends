@@ -10,7 +10,7 @@ import Foundation
 
 class WeatherViewModel {
     
-    var weatherDataPoint:[WeatherDataPoint] = []
+    var weatherDataPoints:[WeatherDataPoint] = []
     private let weatherService =  WeatherService()
     
     func getWeatherData(url:String, withCompletion completion: @escaping (_ error:Error?) -> Void) {
@@ -28,26 +28,26 @@ class WeatherViewModel {
             
             let dataarray = self.parseData(textData: data)
             
-            self.weatherDataPoint = self.convertToWeatherDataPoints(dataArray: dataarray)
+            self.weatherDataPoints = self.convertToWeatherDataPoints(dataArray: dataarray)
             completion(nil)
         }
     }
     
-    func downloadData(withURL url: String, withCompletion completion: @escaping (_ data:String?,_ error:Error?) -> Void) {
+    private func downloadData(withURL url: String, withCompletion completion: @escaping (_ data:String?,_ error:Error?) -> Void) {
         self.weatherService.downloadData(withURL: url, withCompletion: completion)
     }
     
-    func parseData(textData:String) -> [[String]]{
+    private func parseData(textData:String) -> [[String]]{
         return Parser.parse(textData: textData)
     }
     
-    func convertToWeatherDataPoints(dataArray:[[String]]) -> [WeatherDataPoint] {
+    private func convertToWeatherDataPoints(dataArray:[[String]]) -> [WeatherDataPoint] {
         return dataArray.map({ (element) -> WeatherDataPoint in
             return self.convertToWeatherDataPoint(dataLine: element)
         })
     }
     
-    func convertToWeatherDataPoint(dataLine:[String]) -> WeatherDataPoint {
+    private func convertToWeatherDataPoint(dataLine:[String]) -> WeatherDataPoint {
         let year = (Int(dataLine[0]))
         let month = (Int(dataLine[1]))
         let maxTemperature = Double(dataLine[2])
