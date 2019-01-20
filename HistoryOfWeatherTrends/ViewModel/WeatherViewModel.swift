@@ -13,22 +13,6 @@ class WeatherViewModel {
     var weatherDataPoint:[WeatherDataPoint] = []
     private let weatherService =  WeatherService()
     
-    
-    func downloadData(withURL url: String, withCompletion completion: @escaping (_ data:String?,_ error:Error?) -> Void) {
-        self.weatherService.downloadData(withURL: url, withCompletion: completion)
-    }
-    
-    func parseData(textData:String, withCompletion completion: @escaping (_ data:[[String]]?,_ error:Error?) -> Void){
-        
-        
-        let parsedTextData = Parser.parse(textData: textData)
-        
-        DispatchQueue.main.async {
-            completion(parsedTextData,nil)
-        }
-        
-    }
-    
     func getWeatherData(url:String, withCompletion completion: @escaping (_ error:Error?) -> Void) {
         self.downloadData(withURL:url) { (data, error) in
             
@@ -37,24 +21,35 @@ class WeatherViewModel {
                 return
             }
             
-            if let data = data {
-                self.parseData(textData: data, withCompletion: { (dataarray, error) in
-                    if let error = error {
-                        completion(error)
-                        return
-                    }
-                    
-                    if let dataArray = dataarray {
-                        self.weatherDataPoint = self.convertToWeatherDataPoints(dataArray: dataArray)
-                        completion(nil)
-                    } else {
-                        completion(createInternalError())
-                    }
-                })
-            } else {
+            guard let data = data else {
                 completion(createInternalError())
+                return
+            }
+            
+            self.parseData(textData: data) { (dataarray, error) in
+                if let error = error {
+                    completion(error)
+                    return
+                }
+                
+                guard let dataArray = dataarray else {
+                    completion(createInternalError())
+                    return
+                }
+                
+                self.weatherDataPoint = self.convertToWeatherDataPoints(dataArray: dataArray)
+                completion(nil)
             }
         }
+    }
+    
+    func downloadData(withURL url: String, withCompletion completion: @escaping (_ data:String?,_ error:Error?) -> Void) {
+        self.weatherService.downloadData(withURL: url, withCompletion: completion)
+    }
+    
+    func parseData(textData:String, withCompletion completion: @escaping (_ data:[[String]]?,_ error:Error?) -> Void) {
+        let parsedTextData = Parser.parse(textData: textData)
+        completion(parsedTextData,nil)
     }
     
     func convertToWeatherDataPoints(dataArray:[[String]]) -> [WeatherDataPoint] {
@@ -74,6 +69,5 @@ class WeatherViewModel {
         
         return  WeatherDataPoint(year: year!, month: month!, maxTemperature: maxTemperature, minTemperature: minTemperature, daysOfAirFrost: daysOfAirFrost, mmOfRainfall: mmOfRainfall, hoursOfSunshine: hoursOfSunshine)
     }
-    
     
 }
