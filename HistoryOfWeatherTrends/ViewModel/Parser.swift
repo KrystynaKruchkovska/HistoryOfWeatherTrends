@@ -31,7 +31,7 @@ class Parser {
         var clearMonthlyDataArrays = rawMonthlyDataArrays.map { $0.map { $0.replacingOccurrences(of: "*", with: "") } }
         
         clearMonthlyDataArrays = clearMonthlyDataArrays.map { $0.map { $0.replacingOccurrences(of: "---", with: "") } }
-        print(clearMonthlyDataArrays)
+        
         return clearMonthlyDataArrays
     }
     
