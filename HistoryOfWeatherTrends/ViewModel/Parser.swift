@@ -26,15 +26,20 @@ class Parser {
     
         // Removing unnecessery "Provisional" element from some arrays
         rawMonthlyDataArrays = rawMonthlyDataArrays.compactMap { $0.filter { $0 != "Provisional" } }
-        
+        rawMonthlyDataArrays = rawMonthlyDataArrays.compactMap { $0.filter { $0 != "Site" } }
+        rawMonthlyDataArrays = rawMonthlyDataArrays.compactMap { $0.filter { $0 != "closed" } }
+
         // Clearing elements of array by deleting "*" and "#" characters existing in some elements
         var clearMonthlyDataArrays = rawMonthlyDataArrays.map { $0.map { $0.replacingOccurrences(of: "*", with: "") } }
         
+        clearMonthlyDataArrays = clearMonthlyDataArrays.map { $0.map { $0.replacingOccurrences(of: "#", with: "") } }
+        
         clearMonthlyDataArrays = clearMonthlyDataArrays.map { $0.map { $0.replacingOccurrences(of: "---", with: "") } }
+        
+        clearMonthlyDataArrays = clearMonthlyDataArrays.filter { $0 != [] }
         
         return clearMonthlyDataArrays
     }
     
-    
-    
 }
+
