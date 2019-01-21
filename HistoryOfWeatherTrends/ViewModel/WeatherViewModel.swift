@@ -10,7 +10,7 @@ import Foundation
 
 class WeatherViewModel {
     
-    let parser = Parser()
+    private let parser = Parser()
     var weatherDataPoints:[WeatherDataPoint] = []
     private let weatherService =  WeatherService()
     
@@ -23,6 +23,7 @@ class WeatherViewModel {
             
             if let error = error {
                 completion(error)
+                
                 return
             }
             
@@ -54,15 +55,16 @@ class WeatherViewModel {
     }
     
     private func convertToWeatherDataPoint(dataLine:[String]) -> WeatherDataPoint {
-        let year = (Int(dataLine[0]))
-        let month = (Int(dataLine[1]))
-        let maxTemperature = Double(dataLine[2])
-        let minTemperature = Double(dataLine[3])
-        let daysOfAirFrost = Int(dataLine[4])
-        let mmOfRainfall = Double(dataLine[5])
-        let hoursOfSunshine = Double(dataLine[6])
-        
-        return  WeatherDataPoint(year: year!, month: month!, maxTemperature: maxTemperature, minTemperature: minTemperature, daysOfAirFrost: daysOfAirFrost, mmOfRainfall: mmOfRainfall, hoursOfSunshine: hoursOfSunshine)
-    }
+   
+            let year = (Int(dataLine[0]))
+            let month = (Int(dataLine[1]))
+            let maxTemperature = Double(dataLine[2])
+            let minTemperature = Double(dataLine[3])
+            let daysOfAirFrost = Int(dataLine[4])
+            let mmOfRainfall = Double(dataLine[5])
+            let hoursOfSunshine = Double(dataLine[6])
+            
+            return  WeatherDataPoint(year: year!, month: month!, maxTemperature: maxTemperature, minTemperature: minTemperature, daysOfAirFrost: daysOfAirFrost, mmOfRainfall: mmOfRainfall, hoursOfSunshine: hoursOfSunshine)
+     }
     
 }

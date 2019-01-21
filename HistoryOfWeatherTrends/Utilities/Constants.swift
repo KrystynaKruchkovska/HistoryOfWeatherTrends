@@ -36,7 +36,14 @@ struct CONSTANTS {
         Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/dunstaffnagedata.txt", name: "Dunstaffnage"),
         Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/durhamdata.txt", name: "Durham"),
         Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/eastbournedata.txt", name: " Eastbourne"),
-        Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/eskdalemuirdata.txt", name: "Eskdalemuir")]
+        Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/eskdalemuirdata.txt", name: "Eskdalemuir"),
+        Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/heathrowdata.txt", name: "Heathrow"),
+        Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/hurndata.txt", name: "Hurn"),
+        Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/lerwickdata.txt", name: "Lerwick"),
+        Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/leucharsdata.txt", name: "Leuchars"),
+        Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/lowestoftdata.txt", name: "Lowestoft"),
+        Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/manstondata.txt", name: "Manston"),
+        Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/nairndata.txt", name: "Nairn")]
     
     static let valueNotAvailable = "Not available"
 }

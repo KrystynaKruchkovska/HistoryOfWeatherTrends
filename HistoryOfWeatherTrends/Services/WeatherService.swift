@@ -29,7 +29,13 @@ class WeatherService {
                     guard let textData = String(data: data, encoding: String.Encoding.utf8) else {
                         return
                     }
-                  
+                    
+                    if textData == "File not found.\"" {
+                        completion(nil,createInternalError())
+                        return
+                        
+                    }
+
                     completion(textData,nil)
             })
        

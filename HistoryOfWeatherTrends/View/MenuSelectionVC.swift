@@ -32,7 +32,14 @@ class MenuSelectionVC: UIViewController, UITableViewDelegate,UITableViewDataSour
     
     func downloadData(){
         self.startSpinnerAndControlOff()
-        self.weatherViewModel.getWeatherData(url:self.currentStation.url) { [weak self] (error) in
+        self.weatherViewModel.getWeatherData(url:self.currentStation.url) { [weak self] (error)
+            in
+            if let error = error {
+                self?.showAlertWithMessage(error, handler: { (okAction) in
+                    self?.navigationController?.popViewController(animated: true)
+                })
+                return
+            }
             self?.menuSelections = CONSTANTS.menuSelections
             
             DispatchQueue.main.async {
@@ -41,6 +48,7 @@ class MenuSelectionVC: UIViewController, UITableViewDelegate,UITableViewDataSour
             }
         }
     }
+    
     
     func startSpinnerAndControlOff(){
         DispatchQueue.main.async {

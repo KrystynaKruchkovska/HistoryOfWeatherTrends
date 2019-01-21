@@ -8,7 +8,6 @@
 
 import Foundation
 
-
  class Parser {
     
      func parse(textData: String) -> [[String]] {

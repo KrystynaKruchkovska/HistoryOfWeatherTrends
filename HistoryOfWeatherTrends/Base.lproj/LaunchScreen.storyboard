@@ -18,13 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="9DP-BF-IHP">
-                                <rect key="frame" x="127.5" y="251" width="120" height="165"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="9DP-BF-IHP">
+                                <rect key="frame" x="127.5" y="267" width="120" height="133"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8a8-7U-wh4">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="132.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="121.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="center" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="y5K-Sd-bdA">
+                                            <stackView opaque="NO" contentMode="center" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="y5K-Sd-bdA" userLabel="Title_Stack View">
                                                 <rect key="frame" x="4" y="18" width="107.5" height="108"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
@@ -52,7 +52,7 @@
                                         <color key="backgroundColor" white="1" alpha="0.7479398544520548" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AoB-UJ-dL9">
-                                        <rect key="frame" x="0.0" y="164.5" width="120" height="0.5"/>
+                                        <rect key="frame" x="0.0" y="132.5" width="120" height="0.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="0.5" id="J3D-oj-nKA"/>
