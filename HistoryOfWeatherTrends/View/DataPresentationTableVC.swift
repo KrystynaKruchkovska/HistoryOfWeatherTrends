@@ -12,6 +12,7 @@ class DataPresentationTableVC: UITableViewController {
     
     var weatherViewModel:WeatherViewModel!
     var selectedElement:String!
+    var value:Double!
     
     @IBOutlet weak var valueType: UINavigationItem!
     
@@ -39,7 +40,7 @@ class DataPresentationTableVC: UITableViewController {
             fatalError()
         }
         
-        let value = getPointValue(weatherDataPoint: weatherDataPoint)
+        self.value = getPointValue(weatherDataPoint: weatherDataPoint)
         
         cell.setupCell(year: self.valueOrNotAvailable(weatherDataPoint.yyyy),
                        month: self.valueOrNotAvailable(weatherDataPoint.mm),
@@ -80,5 +81,14 @@ class DataPresentationTableVC: UITableViewController {
         }
         
         return CONSTANTS.valueNotAvailable
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == CONSTANTS.SEGUES.toGraphVC) {
+            let vc = segue.destination as? GraphVC
+            vc?.weatherViewModel = self.weatherViewModel
+            
+        }
     }
 }

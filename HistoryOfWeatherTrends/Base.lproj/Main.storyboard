@@ -209,7 +209,13 @@
                             <outlet property="delegate" destination="XdH-Un-hYK" id="0Us-k8-CoF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ValueType" id="xQp-Eo-ais"/>
+                    <navigationItem key="navigationItem" title="ValueType" id="xQp-Eo-ais">
+                        <barButtonItem key="rightBarButtonItem" title="Graph" id="6sa-4k-cXJ">
+                            <connections>
+                                <segue destination="3hX-np-EdD" kind="show" identifier="toGraphVC" id="a5q-c8-AGg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="valueType" destination="xQp-Eo-ais" id="c1Z-UO-hGv"/>
                     </connections>
@@ -217,6 +223,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xWI-Wx-c7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3192.8000000000002" y="554.57271364317842"/>
+        </scene>
+        <!--GraphVC-->
+        <scene sceneID="hds-cf-B6f">
+            <objects>
+                <viewController id="3hX-np-EdD" customClass="GraphVC" customModule="HistoryOfWeatherTrends" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B66-Ga-EHI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dW5-WO-4jt" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dW5-WO-4jt" firstAttribute="top" secondItem="lq5-OW-4VP" secondAttribute="top" id="7DV-Ua-hLD"/>
+                            <constraint firstItem="dW5-WO-4jt" firstAttribute="trailing" secondItem="lq5-OW-4VP" secondAttribute="trailing" id="TK0-V0-53q"/>
+                            <constraint firstItem="dW5-WO-4jt" firstAttribute="leading" secondItem="lq5-OW-4VP" secondAttribute="leading" id="Wh7-cU-1U5"/>
+                            <constraint firstItem="dW5-WO-4jt" firstAttribute="bottom" secondItem="lq5-OW-4VP" secondAttribute="bottom" id="y06-zh-9wU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lq5-OW-4VP"/>
+                    </view>
+                    <connections>
+                        <outlet property="graphView" destination="dW5-WO-4jt" id="re4-Eq-BeJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Und-FO-Q6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3933.5999999999999" y="278.41079460269867"/>
         </scene>
         <!--Item-->
         <scene sceneID="ZDv-A2-KZ7">

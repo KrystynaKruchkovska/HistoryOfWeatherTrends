@@ -25,6 +25,7 @@
 		044512F821EF60BE002F964B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044512F721EF60BE002F964B /* Constants.swift */; };
 		0445130121EF7B90002F964B /* WeatherDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445130021EF7B90002F964B /* WeatherDataPoint.swift */; };
 		0445130321EF7F65002F964B /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445130221EF7F65002F964B /* Month.swift */; };
+		04C1BF5921F6281B00B04922 /* GraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1BF5821F6281B00B04922 /* GraphVC.swift */; };
 		04FD51B221F49CCD00B8149B /* DataPresentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FD51B121F49CCD00B8149B /* DataPresentTableViewCell.swift */; };
 		D799BAEC874E1F80F03C84EE /* Pods_HistoryOfWeatherTrendsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D059D98D3B797BE1542B5A /* Pods_HistoryOfWeatherTrendsTests.framework */; };
 		DAC00C56CEAB1F6D014507C2 /* Pods_HistoryOfWeatherTrends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B0395968C0400E8B239CCF /* Pods_HistoryOfWeatherTrends.framework */; };
@@ -63,6 +64,7 @@
 		044512F721EF60BE002F964B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0445130021EF7B90002F964B /* WeatherDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataPoint.swift; sourceTree = "<group>"; };
 		0445130221EF7F65002F964B /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
+		04C1BF5821F6281B00B04922 /* GraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphVC.swift; sourceTree = "<group>"; };
 		04FD51B121F49CCD00B8149B /* DataPresentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPresentTableViewCell.swift; sourceTree = "<group>"; };
 		18D059D98D3B797BE1542B5A /* Pods_HistoryOfWeatherTrendsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HistoryOfWeatherTrendsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0395968C0400E8B239CCF /* Pods_HistoryOfWeatherTrends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HistoryOfWeatherTrends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 				040BA8C021F36B95008FA899 /* StationListTableVC.swift */,
 				040BA8C621F37FC8008FA899 /* MenuSelectionVC.swift */,
 				040BA8CA21F3AC0A008FA899 /* DataPresentationTableVC.swift */,
+				04C1BF5821F6281B00B04922 /* GraphVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -370,14 +373,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HistoryOfWeatherTrends/Pods-HistoryOfWeatherTrends-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/LaunchScreen/LaunchScreen.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LaunchScreen.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -394,6 +397,7 @@
 				044512F321EF539A002F964B /* WeatherViewModel.swift in Sources */,
 				040BA8C521F37052008FA899 /* DefaultTableViewCell.swift in Sources */,
 				044512F521EF5A71002F964B /* Parser.swift in Sources */,
+				04C1BF5921F6281B00B04922 /* GraphVC.swift in Sources */,
 				0445130121EF7B90002F964B /* WeatherDataPoint.swift in Sources */,
 				040BA8C121F36B95008FA899 /* StationListTableVC.swift in Sources */,
 				040BA8CF21F3C44B008FA899 /* Utils.swift in Sources */,

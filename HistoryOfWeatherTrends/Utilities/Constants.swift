@@ -18,6 +18,7 @@ struct CONSTANTS {
     struct SEGUES {
         static let toMenuStation = "toMenuVC"
         static let toDataPresentationTableVC = "toDataPresentationTableVC"
+        static let toGraphVC = "toGraphVC"
     }
     
     static let menuSelections = [ "Maximum temperature", "Minimum temperature", "Days of air frost","Amount of rain fall", "Hours of sunshine"]
