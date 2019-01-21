@@ -11,7 +11,7 @@ import Charts
 
 class GraphVC: UIViewController {
     
-    var weatherViewModel = WeatherViewModel()
+    var weatherViewModel:WeatherViewModel!
     var weatherArray:[[String]] = []
     
     @IBOutlet weak var graphView: LineChartView!

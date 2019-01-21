@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class WeatherService {
+class WeatherService: WeatherServiceProtocol {
     
     func downloadData(withURL url: String, withCompletion completion: @escaping (_ data:String?,_ error:Error?) -> Void) {
         

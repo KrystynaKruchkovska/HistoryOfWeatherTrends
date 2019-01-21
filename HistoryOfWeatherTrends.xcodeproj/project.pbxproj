@@ -26,6 +26,7 @@
 		0445130121EF7B90002F964B /* WeatherDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445130021EF7B90002F964B /* WeatherDataPoint.swift */; };
 		0445130321EF7F65002F964B /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445130221EF7F65002F964B /* Month.swift */; };
 		04C1BF5921F6281B00B04922 /* GraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1BF5821F6281B00B04922 /* GraphVC.swift */; };
+		04C1BF5B21F650E400B04922 /* WeatherServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1BF5A21F650E400B04922 /* WeatherServiceProtocol.swift */; };
 		04FD51B221F49CCD00B8149B /* DataPresentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FD51B121F49CCD00B8149B /* DataPresentTableViewCell.swift */; };
 		D799BAEC874E1F80F03C84EE /* Pods_HistoryOfWeatherTrendsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D059D98D3B797BE1542B5A /* Pods_HistoryOfWeatherTrendsTests.framework */; };
 		DAC00C56CEAB1F6D014507C2 /* Pods_HistoryOfWeatherTrends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B0395968C0400E8B239CCF /* Pods_HistoryOfWeatherTrends.framework */; };
@@ -65,6 +66,7 @@
 		0445130021EF7B90002F964B /* WeatherDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataPoint.swift; sourceTree = "<group>"; };
 		0445130221EF7F65002F964B /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		04C1BF5821F6281B00B04922 /* GraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphVC.swift; sourceTree = "<group>"; };
+		04C1BF5A21F650E400B04922 /* WeatherServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceProtocol.swift; sourceTree = "<group>"; };
 		04FD51B121F49CCD00B8149B /* DataPresentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPresentTableViewCell.swift; sourceTree = "<group>"; };
 		18D059D98D3B797BE1542B5A /* Pods_HistoryOfWeatherTrendsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HistoryOfWeatherTrendsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0395968C0400E8B239CCF /* Pods_HistoryOfWeatherTrends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HistoryOfWeatherTrends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				044512F021EF527C002F964B /* WeatherService.swift */,
+				04C1BF5A21F650E400B04922 /* WeatherServiceProtocol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 			files = (
 				044512F321EF539A002F964B /* WeatherViewModel.swift in Sources */,
 				040BA8C521F37052008FA899 /* DefaultTableViewCell.swift in Sources */,
+				04C1BF5B21F650E400B04922 /* WeatherServiceProtocol.swift in Sources */,
 				044512F521EF5A71002F964B /* Parser.swift in Sources */,
 				04C1BF5921F6281B00B04922 /* GraphVC.swift in Sources */,
 				0445130121EF7B90002F964B /* WeatherDataPoint.swift in Sources */,

@@ -9,12 +9,16 @@
 import UIKit
 
 class StationListTableVC: UITableViewController {
-    var weatherViewModel = WeatherViewModel()
+    
+    var weatherService = WeatherService()
+    var weatherViewModel:WeatherViewModel!
     var stationsArray:[Station] = CONSTANTS.stations
     var stationToPass:Station!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.weatherViewModel = WeatherViewModel(weatherService: weatherService)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -12,7 +12,11 @@ class WeatherViewModel {
     
     private let parser = Parser()
     var weatherDataPoints:[WeatherDataPoint] = []
-    private let weatherService =  WeatherService()
+    private let weatherService:WeatherServiceProtocol
+    
+    init (weatherService: WeatherServiceProtocol){
+        self.weatherService = weatherService
+    }
     
     func getWeatherData(url:String, withCompletion completion: @escaping (_ error:Error?) -> Void) {
         self.downloadData(withURL:url) { [weak self] (data, error) in
