@@ -12,28 +12,42 @@ import Charts
 class GraphVC: UIViewController {
     
     var weatherViewModel:WeatherViewModel!
-    var weatherArray:[[String]] = []
+    var selectedElement:String!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var graphView: LineChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.setupFirstChart()
+        self.scrollView.delegate = self
+        
     }
     
-    
-    
     func setupFirstChart() {
-        let range = 20
-        let count = 10
-        let values = (0..<count).map { (i) -> ChartDataEntry in
-            let val = Double(arc4random_uniform(UInt32(range)) + 3)
+       
+        graphView.setScaleEnabled(true)
+        graphView.pinchZoomEnabled = true
+
+        let weatherDataArray = weatherViewModel.weatherDataPoints
+        
+        let weatherValues = weatherDataArray.map {(element) -> Double? in
+            return self.weatherViewModel.getPointValue(weatherDataPoint: element, selectedElement: self.selectedElement)
+        }
+        
+        var unwrapedWeatherValues = weatherValues.compactMap{ $0 }
+    
+
+        let values = (0..<unwrapedWeatherValues.count).map { (i) -> ChartDataEntry in
+            let val = unwrapedWeatherValues[i]
             return ChartDataEntry(x: Double(i), y: val)
         }
         
+
         let set1 = LineChartDataSet(values: values, label: "DataSet 1")
-        
-        self.graphView.data =  LineChartData(dataSet: set1)
+        set1.mode = .cubicBezier
+             //my phone is dead one sec ok
+        self.graphView.data = LineChartData(dataSet: set1)
     }
     
     

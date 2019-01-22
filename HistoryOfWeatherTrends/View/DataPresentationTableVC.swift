@@ -12,7 +12,8 @@ class DataPresentationTableVC: UITableViewController {
     
     var weatherViewModel:WeatherViewModel!
     var selectedElement:String!
-    var value:Double!
+    
+
     
     @IBOutlet weak var valueType: UINavigationItem!
     
@@ -34,45 +35,21 @@ class DataPresentationTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //WEATHER INFO TYPE
+        // WEATHER_DATA_TYPE IS ARRAY OF CELLS WITH ALL INFO
         let weatherDataPoint = self.weatherViewModel.weatherDataPoints[indexPath.row]
         
         guard  let cell = tableView.dequeueReusableCell(withIdentifier: CONSTANTS.CELL_IDENTIFIRES.dataPresentCell, for: indexPath) as? DataPresentTableViewCell else {
             fatalError()
         }
         
-        self.value = getPointValue(weatherDataPoint: weatherDataPoint)
+        let value = self.weatherViewModel.getPointValue(weatherDataPoint: weatherDataPoint,selectedElement: self.selectedElement)
         
         cell.setupCell(year: self.valueOrNotAvailable(weatherDataPoint.yyyy),
                        month: self.valueOrNotAvailable(weatherDataPoint.mm),
                        value: self.valueOrNotAvailable(value))
         
         return cell
-    }
-    
-    private func getPointValue(weatherDataPoint:WeatherDataPoint) -> Double? {
-        
-        var result:Double?
-        switch selectedElement{
-            
-        case "Maximum temperature":
-            result =  weatherDataPoint.tmax
-        case "Minimum temperature":
-            result =  weatherDataPoint.tmin
-        case "Days of air frost":
-            if let af = weatherDataPoint.af {
-                result =  Double(af)
-            }else{
-                result =  nil
-            }
-        case "Amount of rain fall":
-            result = weatherDataPoint.rain
-        case "Hours of sunshine":
-           result =   weatherDataPoint.sun
-        default:
-            print("() is outside of the box")
-        }
-        
-        return result
     }
     
     private func valueOrNotAvailable<T>(_ value:T?) -> String {
@@ -88,6 +65,8 @@ class DataPresentationTableVC: UITableViewController {
         if (segue.identifier == CONSTANTS.SEGUES.toGraphVC) {
             let vc = segue.destination as? GraphVC
             vc?.weatherViewModel = self.weatherViewModel
+            vc?.selectedElement = self.selectedElement
+            
             
         }
     }

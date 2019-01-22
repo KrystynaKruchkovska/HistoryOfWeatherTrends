@@ -71,4 +71,32 @@ class WeatherViewModel {
             return  WeatherDataPoint(year: year!, month: month!, maxTemperature: maxTemperature, minTemperature: minTemperature, daysOfAirFrost: daysOfAirFrost, mmOfRainfall: mmOfRainfall, hoursOfSunshine: hoursOfSunshine)
      }
     
+    
+    func getPointValue(weatherDataPoint:WeatherDataPoint,selectedElement:String) -> Double? {
+        
+        var result:Double?
+        switch selectedElement {
+            
+        case "Maximum temperature":
+            result =  weatherDataPoint.tmax
+        case "Minimum temperature":
+            result =  weatherDataPoint.tmin
+        case "Days of air frost":
+            if let af = weatherDataPoint.af {
+                result =  Double(af)
+            }else{
+                result =  nil
+            }
+        case "Amount of rain fall":
+            result = weatherDataPoint.rain
+        case "Hours of sunshine":
+            result =   weatherDataPoint.sun
+        default:
+            print("() is outside of the box")
+        }
+        
+        return result
+    }
+    
+    
 }
