@@ -6,7 +6,7 @@ target 'HistoryOfWeatherTrends' do
   use_frameworks!
 
   pod 'Alamofire'
-  pod 'Charts'
+  pod 'ScrollableGraphView'
 
 
   target 'HistoryOfWeatherTrendsTests' do
