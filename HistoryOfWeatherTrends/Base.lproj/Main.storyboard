@@ -237,9 +237,27 @@
                     <view key="view" contentMode="scaleToFill" id="B66-Ga-EHI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uem-me-EAL" customClass="ScrollableGraphView" customModule="ScrollableGraphView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstItem="lq5-OW-4VP" firstAttribute="bottom" secondItem="uem-me-EAL" secondAttribute="bottom" id="3Ih-gV-ADh"/>
+                            <constraint firstItem="lq5-OW-4VP" firstAttribute="trailing" secondItem="uem-me-EAL" secondAttribute="trailing" id="IF5-Gq-shG"/>
+                            <constraint firstItem="uem-me-EAL" firstAttribute="leading" secondItem="lq5-OW-4VP" secondAttribute="leading" id="lyc-B5-kn1"/>
+                            <constraint firstItem="uem-me-EAL" firstAttribute="top" secondItem="lq5-OW-4VP" secondAttribute="top" id="nm0-i3-xoe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lq5-OW-4VP"/>
                     </view>
+                    <connections>
+                        <outlet property="graphView" destination="uem-me-EAL" id="N6j-yv-mBW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Und-FO-Q6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
