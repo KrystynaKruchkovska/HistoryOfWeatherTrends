@@ -44,8 +44,6 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
         return rangeOfNumbersforY
     }
     
-    
-    
     func setUpValues(){
         let weatherDataArray = weatherViewModel.weatherDataPoints
         let weatherValues = weatherDataArray.map {(element) -> Double? in
@@ -73,6 +71,7 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
         self.linePlot.fillGradientEndColor = UIColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 1)
         
         self.linePlot.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
+
     }
     
     func setUpReferace(){
@@ -84,6 +83,7 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
         self.referenceLines.positionType = .absolute
         // Reference lines will be shown at these values on the y-axis.
         self.referenceLines.absolutePositions = self.createRangeOfNumbersforY()
+    
         
         self.referenceLines.dataPointLabelColor = UIColor.white.withAlphaComponent(0.5)
     }
@@ -97,11 +97,12 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
         self.graphView.dataPointSpacing = 80
         
         self.graphView.shouldAnimateOnStartup = true
-        self.graphView.shouldAdaptRange = true
         
         self.graphView.addPlot(plot: self.dotPlot)
         self.graphView.addPlot(plot: self.linePlot)
         self.graphView.addReferenceLines(referenceLines: self.referenceLines)
+        self.graphView.rangeMax = self.weatherValues.max()!
+        self.graphView.rangeMin = self.weatherValues.min()!
     }
     
     func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
