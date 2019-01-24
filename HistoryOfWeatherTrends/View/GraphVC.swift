@@ -110,14 +110,22 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
     }
     
     func label(atIndex pointIndex: Int) -> String {
-         return "FEB \(pointIndex)"
+        
+        guard let mm  = self.weatherViewModel.weatherDataPoints[pointIndex].mm else {
+            return "--"
+        }
+        
+        guard let yyyy = self.weatherViewModel.weatherDataPoints[pointIndex].yyyy else {
+            return "--"
+        }
+        
+        return "\(mm.rawValue)/\(yyyy)"
     }
     
     func numberOfPoints() -> Int {
          return self.weatherValues.count
     }
     
-
     
 }
 
