@@ -30,20 +30,6 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
         self.view.addSubview(graphView)
     }
     
-    func createRangeOfNumbersforY() -> [Double]{
-        var minValue = Int(weatherValues.min()!)
-        let maxValue = Int(weatherValues.max()!)
-        
-        var rangeOfNumbersforY:[Double] = []
-        
-        while minValue <= maxValue {
-            rangeOfNumbersforY.append(Double(minValue))
-            minValue += 2
-        }
-        
-        return rangeOfNumbersforY
-    }
-    
     func setUpValues(){
         let weatherDataArray = weatherViewModel.weatherDataPoints
         let weatherValues = weatherDataArray.map {(element) -> Double? in
@@ -80,9 +66,9 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
         self.referenceLines.referenceLineColor = UIColor.white.withAlphaComponent(0.2)
         self.referenceLines.referenceLineLabelColor = UIColor.white
         
-        self.referenceLines.positionType = .absolute
+        self.referenceLines.positionType = .relative
         // Reference lines will be shown at these values on the y-axis.
-        self.referenceLines.absolutePositions = self.createRangeOfNumbersforY()
+        self.referenceLines.relativePositions = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
     
         
         self.referenceLines.dataPointLabelColor = UIColor.white.withAlphaComponent(0.5)
