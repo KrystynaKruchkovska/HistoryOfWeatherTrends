@@ -39,7 +39,7 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
         let weatherValues = weatherDataArray.map {(element) -> Double? in
             return self.weatherViewModel.getPointValue(weatherDataPoint: element, selectedElement: self.selectedElement)
         }
-        self.defineEmptyValue(weatherValues: weatherValues)
+        self.findNilIndices(weatherValues: weatherValues)
         
         weatherDataArray = weatherDataArray
             .enumerated()
@@ -49,24 +49,14 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
     }
     
     
-    func defineEmptyValue(weatherValues:[Double?]){
+    func findNilIndices(weatherValues:[Double?]){
         var index = 0
         for value in weatherValues{
+            
             if value == nil{
-                if index > 0 {
-                    index += 1
-                }else{
-                    index += 1
-                }
                 indexForEmptyValueArray.append(index)
-                
-            }else {
-                if index > 0{
-                    index += 1
-                }else{
-                    index += 1
-                }
             }
+            index += 1
         }
     }
 
