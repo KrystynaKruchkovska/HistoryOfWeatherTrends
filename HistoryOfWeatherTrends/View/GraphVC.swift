@@ -12,18 +12,22 @@ import ScrollableGraphView
 class GraphVC: UIViewController,ScrollableGraphViewDataSource {
     
     var weatherViewModel:WeatherViewModel!
+    lazy var weatherDataArray = weatherViewModel.weatherDataPoints
     var selectedElement:String!
     var weatherValues:[Double]!
+    var indexForEmptyValueArray:[Int] = []
     
     let linePlot = LinePlot(identifier: "darkLine")
     let dotPlot = DotPlot(identifier: "darkLineDot")
     let referenceLines = ReferenceLines()
     
+    @IBOutlet weak var graphTitle: UINavigationItem!
     
     @IBOutlet weak var graphView: ScrollableGraphView!
     
 
     override func viewDidLoad() {
+        self.graphTitle.title = self.selectedElement
         self.graphView.dataSource = self
         self.setUpValues()
         self.setUpGraphView()
@@ -31,9 +35,30 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
     }
     
     func setUpValues(){
-        let weatherDataArray = weatherViewModel.weatherDataPoints
+        
         let weatherValues = weatherDataArray.map {(element) -> Double? in
             return self.weatherViewModel.getPointValue(weatherDataPoint: element, selectedElement: self.selectedElement)
+        }
+        var index = 0
+        for value in weatherValues{
+          
+            if value == nil{
+                if index > 0{
+                    index += 1
+                }else{
+                    index += 1
+                }
+                var indexValue = weatherValues[index]
+                indexForEmptyValueArray.append(index)
+                print("deletet Index:\(indexValue )")
+                
+            }else {
+                if index > 0{
+                    index += 1
+                }else{
+                    index += 1
+                }
+            }
         }
     
         self.weatherValues = weatherValues.compactMap{ $0 }
@@ -96,12 +121,22 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
     }
     
     func label(atIndex pointIndex: Int) -> String {
+//        numbers = numbers
+//            .enumerated()
+//            .filter { !indexesToRemove.contains($0.offset) }
+//            .map { $0.element }
+    
+        weatherDataArray = weatherDataArray
+            .enumerated()
+            .filter { !indexForEmptyValueArray.contains($0.offset) }
+            .map { $0.element }
         
-        guard let mm  = self.weatherViewModel.weatherDataPoints[pointIndex].mm else {
+        guard let mm  = self.weatherDataArray[pointIndex].mm else {
+            
             return "--"
         }
         
-        guard let yyyy = self.weatherViewModel.weatherDataPoints[pointIndex].yyyy else {
+        guard let yyyy = self.weatherDataArray[pointIndex].yyyy else {
             return "--"
         }
         
@@ -115,3 +150,15 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
     
 }
 
+extension Array {
+    
+    mutating func remove(at indexs: [Int]) {
+        guard !isEmpty else { return }
+        let newIndexs = Set(indexs).sorted(by: >)
+        newIndexs.forEach {
+            guard $0 < count, $0 >= 0 else { return }
+            remove(at: $0)
+        }
+    }
+    
+}

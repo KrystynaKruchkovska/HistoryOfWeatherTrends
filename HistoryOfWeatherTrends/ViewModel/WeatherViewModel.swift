@@ -98,5 +98,13 @@ class WeatherViewModel {
         return result
     }
     
+     func valueOrNotAvailable<T>(_ value:T?) -> String {
+        if let value = value {
+            return String(describing: value)
+        }
+        
+        return CONSTANTS.valueNotAvailable
+    }
+    
     
 }
