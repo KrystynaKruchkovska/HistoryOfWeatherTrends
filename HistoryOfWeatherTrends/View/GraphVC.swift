@@ -17,8 +17,8 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
     var weatherValues:[Double]!
     var indexForEmptyValueArray:[Int] = []
     
-    let linePlot = LinePlot(identifier: "darkLine")
-    let dotPlot = DotPlot(identifier: "darkLineDot")
+    let linePlot = LinePlot(identifier: CONSTANTS.GRAPH_VC_IDENTIFIRES.darkLine)
+    let dotPlot = DotPlot(identifier: CONSTANTS.GRAPH_VC_IDENTIFIRES.darkLineDot)
     let referenceLines = ReferenceLines()
     
     @IBOutlet weak var graphTitle: UINavigationItem!
@@ -120,11 +120,11 @@ class GraphVC: UIViewController,ScrollableGraphViewDataSource {
 
         guard let mm  = self.weatherDataArray[pointIndex].mm else {
             
-            return "--"
+            return CONSTANTS.graphValueNotAvalible
         }
         
         guard let yyyy = self.weatherDataArray[pointIndex].yyyy else {
-            return "--"
+            return CONSTANTS.graphValueNotAvalible
         }
         
         return "\(mm.rawValue)/\(yyyy)"

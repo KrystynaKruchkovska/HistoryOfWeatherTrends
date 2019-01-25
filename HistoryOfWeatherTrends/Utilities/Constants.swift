@@ -21,13 +21,18 @@ struct CONSTANTS {
         static let toGraphVC = "toGraphVC"
     }
     
+    struct GRAPH_VC_IDENTIFIRES{
+        static let darkLine = "darkLine"
+        static let darkLineDot = "darkLineDot"
+    }
+    
     static let menuSelections = [ "Maximum temperature", "Minimum temperature", "Days of air frost","Amount of rain fall", "Hours of sunshine"]
     
     static let stations = [
-        Station(url:"https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/bradforddata.txt", name:"Bradford"),
         Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/aberporthdata.txt", name: "Aberporth"),
         Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/armaghdata.txt", name: "Armagh"),
         Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/ballypatrickdata.txt", name: "Ballypatrick Forest"),
+        Station(url:"https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/bradforddata.txt", name:"Bradford"),
         Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/braemardata.txt", name: "Braemar"),
         Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/cambornedata.txt", name: "Camborne"),
         Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/cambridgedata.txt", name: "Cambridge NIAB"),
@@ -47,6 +52,7 @@ struct CONSTANTS {
         Station(url: "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/nairndata.txt", name: "Nairn")]
     
     static let valueNotAvailable = "Not available"
+    static let graphValueNotAvalible = "--"
 }
 
 
